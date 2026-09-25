@@ -1,7 +1,9 @@
 import colors from "colors";
 import server from "./server";
 
-process.loadEnvFile();
+if (process.env.NODE_ENV !== "production") {
+  process.loadEnvFile();
+}
 const port = process.env.PORT || 3000;
 
 server.listen(port, () => {
